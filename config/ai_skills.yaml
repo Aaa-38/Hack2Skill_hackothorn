@@ -1,0 +1,22 @@
+# AI skills in Pass 1 normalized_name form (casefolded). Matched against each
+# skill's normalized_name. Consumed by Pipeline 3 as a skill-confirmation signal.
+skills:
+  - machine learning
+  - deep learning
+  - nlp
+  - pytorch
+  - tensorflow
+  - embeddings
+  - rag
+  - llm
+  - transformers
+  - hugging face
+  - vector search
+  - faiss
+  - pinecone
+  - scikit-learn
+  - computer vision
+  - recommendation systems
+  - information retrieval
+  - bert
+  - langchain

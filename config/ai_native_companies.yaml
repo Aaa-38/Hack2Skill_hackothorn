@@ -1,0 +1,13 @@
+# AI-native companies (Pass 2). Case-insensitive exact match on
+# career_history[].company. Consumed by Pipeline 3.
+companies:
+  - Sarvam AI
+  - Yellow.ai
+  - Verloop.io
+  - Haptik
+  - Wysa
+  - Aganitha
+  - Observe.AI
+  - Niki.ai
+  - SigTuple
+  - Mad Street Den

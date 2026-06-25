@@ -1,0 +1,47 @@
+# Skill normalization map (Pass 1).
+#
+# Keys are matched case-insensitively against the casefolded, whitespace-cleaned
+# skill name. The value is the canonical normalized_name written alongside the
+# original (the original `name` is always preserved verbatim).
+#
+# Any skill not listed here falls back to its casefolded cleaned name, so the
+# pipeline never drops a skill — it only canonicalizes known aliases.
+mappings:
+  "javascript": "javascript"
+  "js": "javascript"
+  "node.js": "node.js"
+  "nodejs": "node.js"
+  "node": "node.js"
+  "typescript": "typescript"
+  "ts": "typescript"
+  "reactjs": "react"
+  "react.js": "react"
+  "react": "react"
+  "vuejs": "vue.js"
+  "vue": "vue.js"
+  "vue.js": "vue.js"
+  "postgres": "postgresql"
+  "postgresql": "postgresql"
+  "psql": "postgresql"
+  "golang": "go"
+  "go": "go"
+  "k8s": "kubernetes"
+  "kubernetes": "kubernetes"
+  "amazon web services": "aws"
+  "aws": "aws"
+  "gcp": "google cloud platform"
+  "google cloud": "google cloud platform"
+  "google cloud platform": "google cloud platform"
+  "rest apis": "rest"
+  "rest api": "rest"
+  "restful apis": "rest"
+  "ml": "machine learning"
+  "machine learning": "machine learning"
+  "nlp": "natural language processing"
+  "natural language processing": "natural language processing"
+  "apache spark": "spark"
+  "spark": "spark"
+  "apache kafka": "kafka"
+  "kafka": "kafka"
+  "apache flink": "flink"
+  "flink": "flink"
