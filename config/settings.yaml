@@ -1,0 +1,80 @@
+# Redrob Ranker — Pipeline 0 + 1 settings (Pass 1)
+# Config-driven: no paths/mappings/thresholds are hardcoded in source.
+
+paths:
+  input: data/candidates.jsonl
+  output_dir: output
+  transparency_dir: transparency
+  logs_dir: logs
+  errors_dir: errors
+  skill_mappings: config/skill_mappings.yaml
+  # Pass 2 classification registries (case-insensitive exact match).
+  consulting_companies: config/consulting_companies.yaml
+  product_companies: config/product_companies.yaml
+  ai_native_companies: config/ai_native_companies.yaml
+  ai_skills: config/ai_skills.yaml
+
+# Streaming / batching. The data stream is always line-by-line; batch_size only
+# controls how often running report aggregates are flushed to the log.
+batch_size: 5000
+
+# Cleaning behaviour.
+cleaning:
+  # Default values applied when a configured field is null/missing. Records are
+  # never crashed on nulls; only these configured keys are backfilled.
+  defaults:
+    profile.summary: ""
+    profile.headline: ""
+    profile.location: ""
+    profile.country: ""
+    profile.current_company: ""
+    profile.current_industry: ""
+  # String fields whose value is free text that must be preserved verbatim
+  # (only whitespace / Unicode / control-char normalization is allowed).
+  verbatim_fields:
+    - profile.summary
+    - career_history[].description
+  # Date string fields normalized to ISO YYYY-MM-DD via dateutil.
+  date_fields:
+    - career_history[].start_date
+    - career_history[].end_date
+    - redrob_signals.signup_date
+    - redrob_signals.last_active_date
+
+# Transformation behaviour.
+transformation:
+  # Nested objects whose *scalar* leaf fields are flattened to top-level keys
+  # with the given prefix. Non-scalar leaves (lists/dicts) are left in place.
+  flatten:
+    profile: profile
+    redrob_signals: redrob
+  # Complex list fields kept intact for Pipeline 2.
+  preserve_lists:
+    - skills
+    - career_history
+    - education
+    - certifications
+    - languages
+  # Ordered fields concatenated (existing text only) into candidate_document.
+  document_separator: "\n"
+
+# Pass 2 quality-flag thresholds (flags down-weight in Pipeline 3; never drop).
+quality_thresholds:
+  impossible_tenure_factor: 1.5
+  impossible_tenure_buffer_months: 24
+  expert_zero_experience_min_skills: 5
+  # Fixed reference "today" so the future_dates flag is fully deterministic and
+  # hash-stable regardless of the wall-clock day a run happens on.
+  reference_date: "2026-06-25"
+
+logging:
+  level: INFO
+  pipeline_log: pipeline.log
+  errors_log: errors.log
+
+integrity:
+  hash_algorithm: sha256
+  # HMAC key for signing manifest.json. Resolved from env var REDROB_HMAC_KEY
+  # when set, otherwise this literal fallback is used (override in production).
+  hmac_key_env: REDROB_HMAC_KEY
+  hmac_key_fallback: "redrob-pipeline1-dev-signing-key"

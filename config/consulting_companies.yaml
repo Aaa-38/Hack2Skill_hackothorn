@@ -1,0 +1,16 @@
+# Consulting / IT-services companies (Pass 2). Matched case-insensitively,
+# exact match only, against career_history[].company. Imported unchanged by
+# Pipeline 3 for company-type scoring. Zero company names live in Python code.
+companies:
+  - TCS
+  - Infosys
+  - Wipro
+  - Accenture
+  - Cognizant
+  - Capgemini
+  - Tech Mahindra
+  - HCL
+  - Mindtree
+  - Mphasis
+  - Genpact AI
+  - LTI
