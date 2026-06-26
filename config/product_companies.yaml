@@ -1,0 +1,24 @@
+# Product companies (Pass 2). Case-insensitive exact match on
+# career_history[].company. Consumed by Pipeline 3 for company-type scoring.
+companies:
+  - Swiggy
+  - Razorpay
+  - CRED
+  - Zomato
+  - Flipkart
+  - Meesho
+  - Nykaa
+  - InMobi
+  - BYJU'S
+  - PolicyBazaar
+  - Ola
+  - Zoho
+  - Vedantu
+  - Paytm
+  - Unacademy
+  - PharmEasy
+  - upGrad
+  - Freshworks
+  - PhonePe
+  - Dream11
+  - Glance

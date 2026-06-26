@@ -1,0 +1,113 @@
+# Skill Taxonomy
+#
+# Maps career domains to the normalized skills (produced by Pass 1).
+# Used by Pipeline 3 to infer candidate domain, compute domain relevance,
+# and identify out-of-domain (unknown) skills.
+# Matches are case-insensitive and against `normalized_name`.
+
+domains:
+  backend:
+    - python
+    - java
+    - go
+    - c++
+    - c#
+    - ruby
+    - node.js
+    - rust
+    - django
+    - fastapi
+    - spring boot
+    - postgresql
+    - mysql
+    - mongodb
+    - redis
+    - kafka
+    - rabbitmq
+    - rest
+    - graphql
+    - grpc
+  
+  frontend:
+    - javascript
+    - typescript
+    - react
+    - vue.js
+    - angular
+    - html
+    - css
+    - sass
+    - tailwind
+    - next.js
+    - redux
+    - webpack
+
+  data_engineering:
+    - sql
+    - python
+    - spark
+    - scala
+    - hadoop
+    - airflow
+    - snowflake
+    - bigquery
+    - redshift
+    - dbt
+    - flink
+    - kafka
+
+  ai_ml:
+    - python
+    - machine learning
+    - deep learning
+    - nlp
+    - pytorch
+    - tensorflow
+    - transformers
+    - hugging face
+    - scikit-learn
+    - pandas
+    - numpy
+    - computer vision
+    - recommendation systems
+    - rag
+    - faiss
+    - pinecone
+    - bert
+    - langchain
+
+  devops:
+    - linux
+    - bash
+    - docker
+    - kubernetes
+    - aws
+    - google cloud platform
+    - azure
+    - terraform
+    - ansible
+    - jenkins
+    - github actions
+    - gitlab ci
+    - prometheus
+    - grafana
+
+  mobile:
+    - swift
+    - kotlin
+    - objective-c
+    - java
+    - react native
+    - flutter
+    - dart
+    - ios
+    - android
+
+  security:
+    - cybersecurity
+    - penetration testing
+    - cryptography
+    - network security
+    - owasp
+    - identity and access management
+    - vulnerability assessment

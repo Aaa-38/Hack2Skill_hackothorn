@@ -1,0 +1,56 @@
+# Pipeline 3: Ranking Engine Configuration
+
+weights:
+  title_relevance: 0.25
+  semantic_career: 0.20
+  company: 0.10
+  experience: 0.15
+  skill: 0.15
+  behavioral: 0.15
+
+honeypot:
+  multipliers:
+    warning: 0.95
+    suspicious: 0.80
+    hard: 0.10
+  
+  # Map quality flags (from pipeline 1) to severity levels
+  flag_severity:
+    duplicate_skills: warning
+    negative_or_invalid_values: warning
+    impossible_tenure: suspicious
+    expert_zero_experience: suspicious
+    overlapping_roles: hard
+    future_dates: hard
+
+experience:
+  job_hopping_months_threshold: 12
+  ideal_tenure_months_min: 24
+  ideal_tenure_months_max: 60
+
+behavioral:
+  weights:
+    recruiter_response_rate: 0.30
+    interview_completion_rate: 0.30
+    offer_acceptance_rate: 0.20
+    github_activity_score: 0.10
+    profile_completeness_score: 0.05
+    open_to_work_flag: 0.05
+    # The following are ignored/penalized to avoid popularity bias
+    connection_count: 0.0
+    endorsements_received: 0.0
+    profile_views_received_30d: 0.0
+    search_appearance_30d: 0.0
+
+keywords:
+  # Title keywords for title relevance matching
+  target_roles:
+    - ai engineer
+    - machine learning engineer
+    - ml engineer
+    - data scientist
+    - backend engineer
+    - software engineer
+    - principal engineer
+    - staff engineer
+    - lead engineer
