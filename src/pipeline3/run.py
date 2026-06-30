@@ -20,7 +20,7 @@ def _build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--config-p3", default="config/ranking.yaml")
     parser.add_argument("--taxonomy", default="config/skill_taxonomy.yaml")
     parser.add_argument("--jd", default="config/job_description.txt")
-    parser.add_argument("--top-n", type=int, default=10, help="Only output the top N candidates (default: 10). Use 0 for all.")
+    parser.add_argument("--top-n", type=int, default=100, help="Only output the top N candidates (default: 100). Use 0 for all.")
 
     return parser
 
